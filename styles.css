@@ -1,0 +1,21 @@
+{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: #25272E;
+}
+
+header{
+	margin:0px;
+	background: white;
+	padding: 10px;
+}
+
+header >h1{
+	color: #24272E ;
+	text-align: center;
+	font-family: : Asap, sans-serif;
+}
