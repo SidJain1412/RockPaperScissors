@@ -3,26 +3,29 @@ var computerScore = 0;
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector(".score-board");
-const result_div = document.querySelector(".result");
+const result_p = document.querySelector(".result p");
 const rock_div = document.getElementById("rock");
 const paper_div = document.getElementById("paper");
 const scissors_div = document.getElementById("scissors");
+const smalluser = "(user)".fontsize(3).sub();
+const smallcomp = "(comp)".fontsize(3).sub();
 
 function win(userChoice, computerChoice) {
 	userScore++;
-	result_div.innerHTML = userChoice + " beats " + computerChoice+ ". You win!";
+	result_p.innerHTML = `${userChoice}${smalluser} beats ${computerChoice}${smallcomp}. You win! 🔥`;
 	userScore_span.innerHTML = userScore;
 }
 
 
 function lose(userChoice, computerChoice) {
 	computerScore++;
+	result_p.innerHTML = `${computerChoice}${smallcomp} beats ${userChoice}${smalluser}. You lose! 💩`;
 	computerScore_span.innerHTML = computerScore;
 }
 
 
 function draw(userChoice, computerChoice) {
-	
+	result_p.innerHTML = `${computerChoice}${smallcomp} equals ${userChoice}${smalluser}. Draw! 🤝`;
 }
 
 
