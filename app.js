@@ -14,6 +14,9 @@ function win(userChoice, computerChoice) {
 	userScore++;
 	result_p.innerHTML = `${userChoice}${smalluser} beats ${computerChoice}${smallcomp}. You win! 🔥`;
 	userScore_span.innerHTML = userScore;
+	const userChoice_div = document.getElementById(userChoice.toLowerCase())
+	userChoice_div.classList.add('green-glow');
+	setTimeout(function() { document.getElementById(userChoice.toLowerCase()).classList.remove('green-glow') }, 300);
 }
 
 
@@ -21,11 +24,15 @@ function lose(userChoice, computerChoice) {
 	computerScore++;
 	result_p.innerHTML = `${computerChoice}${smallcomp} beats ${userChoice}${smalluser}. You lose! 💩`;
 	computerScore_span.innerHTML = computerScore;
+	document.getElementById(userChoice.toLowerCase()).classList.add('red-glow');
+	setTimeout(function() { document.getElementById(userChoice.toLowerCase()).classList.remove('red-glow') }, 300);
 }
 
 
 function draw(userChoice, computerChoice) {
 	result_p.innerHTML = `${computerChoice}${smallcomp} equals ${userChoice}${smalluser}. Draw! 🤝`;
+	document.getElementById(userChoice.toLowerCase()).classList.add('gray-glow');
+	setTimeout(function() { document.getElementById(userChoice.toLowerCase()).classList.remove('gray-glow') }, 300);
 }
 
 
