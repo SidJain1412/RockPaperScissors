@@ -21,6 +21,16 @@ header h1{
 	text-align: center;
 }
 
+footer{
+	background: #545454;
+	padding: 10px;
+	text-align: center;
+}
+
+a{
+	color:white;
+}
+
 .score-board {
 	border: 3px solid white;
 	width: 200px;
