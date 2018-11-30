@@ -16,7 +16,7 @@ function win(userChoice, computerChoice) {
 	userScore_span.innerHTML = userScore;
 	const userChoice_div = document.getElementById(userChoice.toLowerCase())
 	userChoice_div.classList.add('green-glow');
-	setTimeout(function() { document.getElementById(userChoice.toLowerCase()).classList.remove('green-glow') }, 300);
+	setTimeout(() => userChoice_div.classList.remove('green-glow'), 300);
 }
 
 
@@ -24,22 +24,23 @@ function lose(userChoice, computerChoice) {
 	computerScore++;
 	result_p.innerHTML = `${computerChoice}${smallcomp} beats ${userChoice}${smalluser}. You lose! 💩`;
 	computerScore_span.innerHTML = computerScore;
-	document.getElementById(userChoice.toLowerCase()).classList.add('red-glow');
-	setTimeout(function() { document.getElementById(userChoice.toLowerCase()).classList.remove('red-glow') }, 300);
+	const userChoice_div = document.getElementById(userChoice.toLowerCase())
+	userChoice_div.classList.add('red-glow');
+	setTimeout(() => userChoice_div.classList.remove('red-glow'), 300);
 }
 
 
 function draw(userChoice, computerChoice) {
 	result_p.innerHTML = `${computerChoice}${smallcomp} equals ${userChoice}${smalluser}. Draw! 🤝`;
-	document.getElementById(userChoice.toLowerCase()).classList.add('gray-glow');
-	setTimeout(function() { document.getElementById(userChoice.toLowerCase()).classList.remove('gray-glow') }, 300);
+	const userChoice_div = document.getElementById(userChoice.toLowerCase())
+	userChoice_div.classList.add('gray-glow');
+	setTimeout(() => userChoice_div.classList.remove('gray-glow'), 300);
 }
 
 
-function game(userChoice)	{
+function game(userChoice) {
 	const computerChoice = getComputerChoice();
-	switch (userChoice + computerChoice)
-	{
+	switch (userChoice + computerChoice) {
 		case "RockScissors":
 		case "PaperRock":
 		case "ScissorsPaper":
@@ -60,21 +61,15 @@ function game(userChoice)	{
 
 
 function getComputerChoice() {
-	const choices = ['Rock','Paper','Scissors'];
-	return choices[Math.floor(Math.random()*3)];
+	const choices = ['Rock', 'Paper', 'Scissors'];
+	return choices[Math.floor(Math.random() * 3)];
 }
 
 
 function main() {
-	rock_div.addEventListener('click', function(){
-		game("Rock");
-	})
-	paper_div.addEventListener('click', function(){
-		game("Paper");
-	})
-	scissors_div.addEventListener('click', function(){
-		game("Scissors");
-	})
+	rock_div.addEventListener('click', () => game("Rock"));
+	paper_div.addEventListener('click', () => game("Paper"));
+	scissors_div.addEventListener('click', () => game("Scissors"));
 }
 
 getComputerChoice();
